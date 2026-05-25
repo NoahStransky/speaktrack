@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎯 SpeakTrack
 
-## Getting Started
+**The open-source habit tracker built for non-native English speakers.**
 
-First, run the development server:
+Track your speaking practice. Record voice notes. Build a personal library of resources. See your progress over time.
+
+## Features
+
+- ✅ **Daily Habit Tracking** — Log shadowing, voice notes, and English conversations
+- 🎙️ **Voice Note Journal** — Record yourself, rate performance, listen back
+- 📚 **Resource Library** — Save TED talks, podcasts, phrases, and shadowing materials
+- 📊 **Progress Dashboard** — Streak counter, calendar heatmap, activity feed
+- 🌍 **Open Source (MIT)** — Use it, modify it, contribute
+
+## Tech Stack
+
+- **Frontend:** Next.js 16 (App Router) + Ant Design 6
+- **Backend:** Next.js API routes + Prisma ORM
+- **Database:** SQLite (via libsql adapter)
+- **Auth:** NextAuth.js v5 (credentials + JWT)
+- **Testing:** Vitest + React Testing Library
+
+## Quick Start
+
+### Prerequisites
+- Node.js 20+
+- npm
+
+### Setup
 
 ```bash
+git clone https://github.com/berniec/speaktrack.git
+cd speaktrack
+npm install
+cp .env.example .env
+# Generate AUTH_SECRET: openssl rand -base64 32
+npx prisma migrate dev --name init
+npx prisma db seed
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Demo Login
+- Email: `demo@speaktrack.app`
+- Password: `demo1234`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Docker
 
-## Learn More
+```bash
+docker compose up -d
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/
+├── (auth)/          # Login, register pages
+├── (dashboard)/     # Dashboard, daily log, voice, resources
+├── api/             # Auth, logs, voice, resources API routes
+components/
+├── dashboard/       # StatsCards, CalendarHeatmap, RecentActivity
+├── layout/          # AppSidebar, UserMenu
+├── voice/           # VoiceRecorder, VoiceNoteCard
+├── resources/       # ResourceCard, AddResourceModal
+└── ui/              # LoadingSkeleton, ErrorDisplay
+lib/
+├── auth.ts          # NextAuth configuration
+├── prisma.ts         # Prisma client singleton
+└── antd-provider.tsx # Ant Design registry + config
+prisma/
+├── schema.prisma    # User, DailyLog, VoiceNote, Resource models
+└── seed.ts          # 17 curated resources + demo data
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+Areas for contribution:
+- 🌐 i18n / translations
+- 📱 Mobile-responsive improvements
+- 📊 Additional chart types
+- 🔌 OAuth providers (Google, GitHub)
+- ☁️ PostgreSQL / cloud deployment guides
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT — see [LICENSE](LICENSE)

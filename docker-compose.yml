@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=file:/app/prisma/dev.db
+      - AUTH_SECRET=${AUTH_SECRET}
+      - NEXTAUTH_URL=http://localhost:3000
+    volumes:
+      - speaktrack-data:/app/prisma
+      - speaktrack-uploads:/app/public/uploads
+
+volumes:
+  speaktrack-data:
+  speaktrack-uploads:
