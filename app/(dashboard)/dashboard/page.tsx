@@ -5,6 +5,7 @@ import { Typography, Spin } from 'antd';
 import StatsCards from '@/components/dashboard/StatsCards';
 import CalendarHeatmap from '@/components/dashboard/CalendarHeatmap';
 import RecentActivity from '@/components/dashboard/RecentActivity';
+import RatingTrendChart from '@/components/dashboard/RatingTrendChart';
 
 const { Title } = Typography;
 
@@ -26,6 +27,7 @@ export default function DashboardPage() {
       <Title level={3}>Dashboard</Title>
       <StatsCards stats={stats} />
       <CalendarHeatmap logs={stats?.logs || []} />
+      <RatingTrendChart />
       <RecentActivity logs={stats?.logs || []} />
     </>
   );
