@@ -1,8 +1,7 @@
-import { PrismaClient } from '@/app/generated/prisma/client';
-import { PrismaLibSql } from '@prisma/adapter-libsql';
+import { PrismaClient } from '../prisma/generated/client';
 import bcrypt from 'bcryptjs';
 
-const prisma = new PrismaClient({ adapter: new PrismaLibSql({ url: 'file:./prisma/dev.db' }) });
+const prisma = new PrismaClient();
 
 const seedResources = [
   { type: 'shadowing', title: 'How great leaders inspire action — Simon Sinek', url: 'https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action', content: 'Iconic TED talk. Clear, slow delivery — excellent for shadowing practice.', tags: 'ted,motivation,leadership,shadowing,beginner' },
