@@ -1,7 +1,5 @@
-import { PrismaClient } from '../prisma/generated/client';
+import { prisma } from '../lib/prisma';
 import bcrypt from 'bcryptjs';
-
-const prisma = new PrismaClient();
 
 const seedResources = [
   { type: 'shadowing', title: 'How great leaders inspire action — Simon Sinek', url: 'https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action', content: 'Iconic TED talk. Clear, slow delivery — excellent for shadowing practice.', tags: 'ted,motivation,leadership,shadowing,beginner' },
