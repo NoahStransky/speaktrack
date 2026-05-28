@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect, useCallback } from 'react';
 import { Typography, Card, Select, Input, Button, message, Space, Empty } from 'antd';
 import { SaveOutlined } from '@ant-design/icons';

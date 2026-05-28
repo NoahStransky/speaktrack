@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+
+export const dynamic = 'force-dynamic';
 import { Typography, Spin } from 'antd';
 import StatsCards from '@/components/dashboard/StatsCards';
 import CalendarHeatmap from '@/components/dashboard/CalendarHeatmap';
