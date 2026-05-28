@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Typography, Button, Card, Row, Col, Space, Layout } from 'antd';
 import {
