@@ -1,3 +1,5 @@
+'use client';
+
 import { SessionProvider } from 'next-auth/react';
 import { Layout } from 'antd';
 import AppSidebar from '@/components/layout/AppSidebar';
