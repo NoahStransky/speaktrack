@@ -37,7 +37,7 @@ export default function RatingTrendChart() {
           <XAxis dataKey="date" tick={{ fontSize: 11 }} angle={-30} textAnchor="end" height={50} />
           <YAxis domain={[0, 5]} ticks={[1, 2, 3, 4, 5]} tickFormatter={(v) => ['', '😰', '😐', '🙂', '😊', '🔥'][v] || ''} />
           <Tooltip
-            formatter={(value: number, name: string) => [name === 'movingAvg' ? `${value} (avg)` : value, name === 'movingAvg' ? 'Trend' : 'Rating']}
+            formatter={(value, name) => [name === 'movingAvg' ? `${value} (avg)` : value, name === 'movingAvg' ? 'Trend' : 'Rating']}
             labelFormatter={(label) => `Date: ${label}`}
           />
           <ReferenceLine y={3} stroke="#bfbfbf" strokeDasharray="5 5" label={{ value: 'Baseline', position: 'insideBottomRight', fontSize: 10 }} />
